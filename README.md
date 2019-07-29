@@ -1,86 +1,51 @@
-## expressapp
+## Backend for medium clone using Express.js
+a sample hello world express app
+```js
+const express = require('express')
+const app = express()
 
-Basic Web project with ExpressJS on NodeJS
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
 
-[![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
-![Platform](https://img.shields.io/badge/platform-NODE-lightgrey.svg?style=flat)
+app.listen(3000)
+```
 
-### Table of Contents
-* [Requirements](#requirements)
-* [Configuration](#configuration)
-* [Run](#run)
-* [Debug](#debug)
+## Quick Start
 
+  The quickest way to get started with express is to utilize the executable [`express(1)`](https://github.com/expressjs/generator) to generate an application as shown below:
 
-
-<a name="enablement"></a>
-### IBM Cloud Enablement
-
-<a name="requirements"></a>
-### Requirements
-#### Local Development Tools Setup (optional)
-
-- Install the latest [NodeJS](https://nodejs.org/en/download/) 6+ LTS version.
-
-#### IBM Cloud development tools setup (optional)
-
-1. Install [IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/setting_up_idt.html#add-cli) on your machine  
-2. Install the plugin with: `bx plugin install dev -r bluemix`
-
-
-#### IBM Cloud DevOps setup (optional)
-
-[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/)
-
-[IBM Cloud DevOps](https://www.ibm.com/cloud-computing/bluemix/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. The "Create Toolchain" button creates a DevOps toolchain and acts as a single-click deploy to IBM Cloud including provisioning all required services. 
-
-***Note** you must publish your project to [Github](https://github.com/) for this to work.
-
-
-
-<a name="configuration"></a>
-### Configuration
-
-The project contains IBM Cloud specific files that are used to deploy the application as part of an IBM Cloud DevOps flow. The `.bluemix` directory contains files used to define the IBM Cloud toolchain and pipeline for your application. The `manifest.yml` file specifies the name of your application in IBM Cloud, the timeout value during deployment, and which services to bind to.
-
-Service credentials are taken from the VCAP_SERVICES environment variable if running IBM Cloud Cloud Foundry, from individual environment variables per service if running on IBM Cloud Container Service (see ./server/config/mappings.json), or from a config file if running locally, named`./server/config/localdev-config.js`.
-
-
-<a name="run"></a>
-### Run
-#### Using IBM Cloud development CLI
-The IBM Cloud development plugin makes it easy to compile and run your application if you do not have all of the tools installed on your computer yet. Your application will be compiled with Docker containers. To compile and run your app, run:
+  Install the executable. The executable's major version will match Express's:
 
 ```bash
-bx dev build
-bx dev run
+$ npm install -g express-generator@4
 ```
 
+  Create the app:
 
-#### Using your local development environment
-
-
-
-##### Endpoints
-
-
-##### Session Store
-You may see this warning when running `bx dev run`:
-```
-Warning: connect.session() MemoryStore is not
-designed for a production environment, as it will leak
-memory, and will not scale past a single process.
-```
-When deploying to production, it is best practice to configure sessions to be stored in an external persistence service.
-
-
-<a name="debug"></a>
-### Debug
-
-#### Using IBM Cloud development CLI
-To build and debug your app, run:
 ```bash
-bx dev build --debug
-bx dev debug
+$ express /tmp/foo && cd /tmp/foo
 ```
 
+  Install dependencies:
+
+```bash
+$ npm install
+```
+
+  Start the server:
+
+```bash
+$ npm start
+```
+
+  View the website at: http://localhost:3000
+
+## Tests
+
+  To run the test suite, first install the dependencies, then run `npm test`:
+
+```bash
+$ npm install
+$ npm test
+```
